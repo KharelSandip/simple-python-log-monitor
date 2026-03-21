@@ -1,0 +1,7 @@
+TODO - requirements.txt
+
+1. Add only packages installed using pip
+2. Do not add Python built-in modules
+3. Keep file clean and simple
+4. Can add pytest for testing
+5. Comment future packages 

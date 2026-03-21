@@ -1,0 +1,10 @@
+TODO - alerts.txt
+
+This file stores detected alert logs
+
+Tasks:
+- NOT a manually edit
+- monitor.py writes to this file
+
+Expected:
+- Only ERROR / CRITICAL lines
