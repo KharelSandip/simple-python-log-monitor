@@ -1,36 +1,42 @@
+import time
+import random
+from datetime import datetime
 
-TODO - app.py
+# Creating a file path of the file, where the logs are stored
+Log_file = "logs/app.log"
 
-Goal:
-Simulate a real application that produces logs.
+# Creating a log messages
+log_messages = [
+    "INFO: User logged in",
+    "INFO: Request processed successfully",
+    "WARNING: High memory usage detected",
+    "WARNING: Disk space running low",
+    "ERROR: Database connection failed",
+    "ERROR: Timeout while calling API",
+]
 
-Tasks:
-1. Import required modules:
-   - time (for delay)
-   - random (for random log messages)
-   - datetime (for timestamps)
+# function to generate the logs
+def generate_log():
+    """This function will create a real, with a current time logs of a app."""
+    # choice a random log from log_messages
+    message = random.choice(log_messages)
+    # The present formated date and time for each log, 
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # like a real log of a system
+    log_line = f"{timestamp} - {message}"
+    return log_line
 
-2. Define log file path:
-   - logs/app.log
+# Run the loop till we mannully kill the app.py 
+while True:
+    
+    log = generate_log()
 
-3. Create a list of log messages:
-   - INFO logs
-   - WARNING logs
-   - ERROR logs
+    # Print to console
+    print(log)
 
-4. Create a function:
-   - pick a random message
-   - add timestamp
-   - format log line
+    # Append to file
+    with open(Log_file, "a") as file:
+        file.write(log + "\n")
 
-5. Print log to console
-
-6. Append log to file
-
-7. Run in infinite loop:
-   - generate logs every 2–3 seconds
-
-Expected Output:
-- Logs printed in terminal
-- Logs written in logs/app.log
-
+    # Wait 2–3 seconds
+    time.sleep(random.randint(2, 3))

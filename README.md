@@ -1,4 +1,4 @@
-[3~# 🚀 Python Log Monitor
+🚀 Python Log Monitor
 
 ## 📌 Overview
 This is a simple, python log monitor.
@@ -61,14 +61,14 @@ We use a simple Pull Request (PR) workflow.
 ### Steps
 ```bash
 # 1. Create a branch
-git checkout -b feature/your-feature-name
+git checkout -b feature/your-name
 
 # 2. Make changes
 git add .
 git commit -m "your message"
 
 # 3. Push
-git push origin feature/your-feature-name
+git push origin feature/your-name
 
 # 4. Open PR on GitHub
 # 5. Review → Merge
