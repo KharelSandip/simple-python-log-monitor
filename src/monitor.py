@@ -1,35 +1,38 @@
-TODO - monitor.py (Log Scanner)
+import time
 
-Goal:
-Read logs and detect errors (basic monitoring system)
+while True:
+   # Creating file paths
+   Logs_file = "logs/app.log"
+   Alert_file = "output/alerts.txt"
 
-Tasks:
-1. Define file paths:
-   - input: logs/app.log
-   - output: output/alerts.txt
+   # Alert keywords to detect
+   alert_keywords = ["ERROR", "CRITICAL", "timeout", "failed"]
 
-2. Define alert keywords:
-   - ERROR
-   - CRITICAL
-   - timeout
-   - failed
+   # Variable to count alerts
+   alert_count = 0
 
-3. Open log file for reading
+   # Open alerts.txt in write mode as "w"
+   with open(Alert_file, "w") as alerts:
 
-4. Loop through each line
+      # Open app.log in read mode as "r"
+      with open(Logs_file, "r") as log_file:
 
-5. Check:
-   - if line contains any keyword (case-insensitive)
+         # Read each line from the log file
+         for line in log_file:
 
-6. If match:
-   - write line to alerts.txt
+               # Check if any alert keyword is in the line
+               # Also here, we are looping in the alert_keywords
+               if any(keyword.lower() in line.lower() for keyword in alert_keywords):
 
-7. Count number of alerts
+                  # Write matching line into alerts.txt
+                  alerts.write(line)
 
-8. Print summary:
-   - total alerts found
+                  # Print that Alert
+                  print(line)
 
-Expected Output:
-- alerts.txt contains only error lines
-- terminal shows count of alerts
+                  # Increase alert count
+                  alert_count += 1
 
+   # Print total alerts found
+   print(f"Total alerts found: {alert_count}")
+   time.sleep(3)
